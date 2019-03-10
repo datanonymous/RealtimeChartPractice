@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
@@ -36,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements //extends DemoBas
         OnChartValueSelectedListener {
 
     private LineChart chart;
+    int seekBarProgressValue = 0;
+    float seekBarProgressValue2 = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +104,49 @@ public class MainActivity extends AppCompatActivity implements //extends DemoBas
         pinkFab.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Toast.makeText(getApplicationContext(), "Entry added!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Entry added!", Toast.LENGTH_SHORT).show();
                 addEntry();
             }
         });
+
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            //int seekBarProgressValue = 0;
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBarProgressValue = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //Toast.makeText(getApplicationContext(), "Seekbar progress: "+seekBarProgressValue, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        SeekBar seekBar2 = findViewById(R.id.seekBar2);
+        seekBar2.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            //int seekBarProgressValue2 = 0;
+            @Override
+            public void onProgressChanged(SeekBar seekBar2, int progress, boolean fromUser) {
+                seekBarProgressValue2 = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar2) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar2) {
+                //Toast.makeText(getApplicationContext(), "Seekbar progress: "+seekBarProgressValue2, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 
@@ -122,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements //extends DemoBas
                 data.addDataSet(set);
             }
 
-            data.addEntry(new Entry(set.getEntryCount(), (float) (Math.random() * 10) + 30f), 0);
+            data.addEntry(new Entry(set.getEntryCount(), (float) (Math.random() * seekBarProgressValue) + seekBarProgressValue2), 0); //+30f instead of seekBarProgressValue2
             data.notifyDataChanged();
 
             // let the chart know it's data has changed
