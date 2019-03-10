@@ -6,13 +6,13 @@
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/chart1"
-        android:layout_width="wrap_content"
+        android:layout_width="388dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pinkFab"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="9dp" />
@@ -37,18 +37,19 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:layout_toStartOf="@+id/pinkFab" />
 
     <SeekBar
         android:id="@+id/seekBar2"
-        android:layout_width="312dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="21dp"
-        android:layout_toStartOf="@+id/pinkFab" />
+        android:layout_marginBottom="20dp"
+        android:layout_toStartOf="@+id/pinkFab"
+        android:rotation="0" />
 
 </RelativeLayout>
