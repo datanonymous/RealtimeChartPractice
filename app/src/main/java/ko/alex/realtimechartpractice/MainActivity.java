@@ -273,6 +273,11 @@ public class MainActivity extends AppCompatActivity implements //extends DemoBas
                 }
                 break;
             }
+            case R.id.asdf: {
+                Intent intentID = new Intent(getApplicationContext(), asdf.class);
+                startActivity(intentID);
+                break;
+            }
         }
         return true;
     }
